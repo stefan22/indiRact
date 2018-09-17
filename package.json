@@ -1,0 +1,17 @@
+{
+  "name": "indiract",
+  "version": "1.0.0",
+  "description": "- installed live-server   + `live-server` to run server",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "live-server": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sl",
+  "license": "MIT"
+}
