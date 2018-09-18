@@ -58,3 +58,6 @@
      > live-server public
 ```
 
+
+
+git remote add origin https://github.com/stefan22/indiRact.git
