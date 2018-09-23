@@ -1,3 +1,15 @@
 {
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+"editor.occurrencesHighlight": true,
+
+"tslint.enable": false,
+"tslint.ignoreDefinitionFiles": true,
+"editor.autoIndent": true,
+"workbench.settings.enableNaturalLanguageSearch": true,
+"html.suggest.angular1": true,
+"editor.autoClosingBrackets": "always",
+"auto-close-tag.fullMode": true,
+"auto-close-tag.SublimeText3Mode": true,
+"editor.formatOnSave": true,
+"tslint.jsEnable": true
 }
