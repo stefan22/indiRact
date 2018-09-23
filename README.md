@@ -86,7 +86,7 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript Lan
 
 
 ### another todo list 
-.. but this time built off a component-based layout structure and jsx for class rendering inner-components:      
+.. but this time built off a `component-based` layout structure and jsx for class rendering inner-components:      
 header, list-options, single-option and add-option.            
 
 crime documentary watch guide listing some memorable titles available in ID Discovery channel:      
