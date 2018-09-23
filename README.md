@@ -53,6 +53,7 @@
 
 
 <hr/>
+
 #### VS-Code Annoying typescript highlighting errors 
 
 `[ts] , expected`
