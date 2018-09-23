@@ -299,3 +299,8 @@ crime documentary watch guide listing some memorable titles available in ID Disc
 
 ### Reversing data flow, but also passing data upstream
 
+- the same way as with reversing data flow, but this time creating another function within the child       
+  component - do whatever calc are needed - then passing this data to the funcion in the parent component.
+  
+ 
+
