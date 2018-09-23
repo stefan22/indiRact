@@ -54,13 +54,19 @@
 
 <hr/>
 
+...      
+ ...    
+
 #### VS-Code Annoying typescript highlighting errors 
 
 `[ts] , expected`
 
 Disabling every avail TS setting would not get rid of it.           
 Go to Extension view, search for @builtin javascript, and disable TypeScript Language Features.      
+
 <hr/>
+ ...       
+...           
 
 
 `classes`: super/extends to add up properties from another constructor, re-write methods
