@@ -52,27 +52,24 @@
   + `live-server public`
 
 
-<kbd>and</kbd>
 
-```
-     > live-server public
-```
+## VS-Code Annoying typescript highlighting errors 
 
+`[ts] , expected`
 
-
-git remote add origin https://github.com/stefan22/indiRact.git
-
-## [ts] , expected annoying typescript highlighting/errors
-Disabling every avail TS setting would not get rid of it.
-Go to Extension view, search for @builtin javascript, and disable TypeScript and JavaScript Language Features.
+Disabling every avail TS setting would not get rid of it.           
+Go to Extension view, search for @builtin javascript, and disable TypeScript Language Features.      
 
 
-- classes: super/extends to add up properties from another constructor, re-write methods
-  in parent class, pass events from parent/child classes & viceversa
-- jsx component rendering, and often used patterns like inline rendering using ternary
+
+`classes`: super/extends to add up properties from another constructor, re-write methods
+  in parent class, pass events from parent/child classes & viceversa .          
+`jsx` component rendering, and often used patterns like inline rendering using ternary
   operators, and double negatives with booleans- jsx always returns undefined when no value.
 
-<br /> <kbd>v3</kbd>
+<br /> 
+
+<kbd>v3</kbd>
 
 ![](public/images/watch-crime.png)
 
@@ -80,8 +77,11 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript and
 
 
 
-- another todo list but this time built off a component-based layout structure and jsx for
-  class rendering inner-components:header, list-options, single-option and add-option (actually a crime documentary watch guide listing some memorable titles available in ID Discovery channel:
+### another todo list 
+.. but this time built off a component-based layout structure and jsx for class rendering inner-components:      
+header, list-options, single-option and add-option.            
+
+crime documentary watch guide listing some memorable titles available in ID Discovery channel:      
 
  + `murder-instincts`,
  + `murder-comes-to-town`,
@@ -92,23 +92,7 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript and
  + `no-happy-ending -e`)
 
 
-  parent component, nesting components
 
-```
-=> class OptionComp extends React.Component {
-
-
-   }
-
-   // to render an instance of this class component:
-
-   >  <OptionComp />
-
-   // these two are the same:
-
-      <OptionComp></OptionComp>   ====  <OptionComp>
-
-```
 
 ### components props
 - allow components to comunicate with one another
@@ -132,7 +116,7 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript and
       />
 
       //key is title
-      //vale is 'test value'
+      //value is 'test value'
 
       //How to access it in Header instance
 
@@ -154,13 +138,14 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript and
 
 ```
 
+#### why adding bind(this) to methods
 
-- need to add `bind.this` to methods
- + method functions have this clearly defined
+ + method functions have this clearly defined but
  + if a method is assigned to variable of the same name and later call you would
-   get an error
- + this on a function is undefined
- + can't pass context from an obj to a func
+   get an error because:
+ + you can't pass context from the obj to fn  
+ + this on a function will return undefined
+ 
 
  ```
       const obj = {
@@ -188,10 +173,12 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript and
 
  ```
 
-### component state
+#### component state
+
 - essential for component interactivity
 - it allows components to manage some data
 - when data changes automatically re-renders to reflect those changes
+
 
 ##### state steps:
 
@@ -209,7 +196,7 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript and
 
 
 ```
-   //without component state, you would need to manually call render method
+   //without component state, you would need to manually call render method like this:
 
    const onDoSomething() => {
       some.options = [];
