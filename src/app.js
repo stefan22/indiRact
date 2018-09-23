@@ -25,6 +25,11 @@ class IndiRact extends React.Component {
 	} // clearWatch
 
 	addWatch(option) {
+		if (!option) {
+			return 'enter a valid value: string';
+		} else if (this.state.options.indexOf(option) > -1) {
+			return 'this watchcrime already exists';
+		}
 		this.setState(prevState => {
 			return {
 				options: this.state.options.concat([option]),
@@ -63,7 +68,7 @@ class IndiRact extends React.Component {
 				<Options options={this.state.options} clearWatch={this.clearWatch} />
 
 				<AddOption
-					// watchlistEmpty={(this.state.options.length > 0)}
+					watchlistEmpty={this.state.options.length > 0}
 					// addWatchNow={this.state.addWatchNow}
 					addWatch={this.addWatch}
 				/>
@@ -156,15 +161,30 @@ class SingleOption extends React.Component {
 class AddOption extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			error: undefined,
+		};
 		this.addWatch = this.addWatch.bind(this);
 	}
 	addWatch(e) {
 		e.preventDefault();
 		const option = e.target.elements[0].value;
-		if (option) {
-			this.props.addWatch(option);
-			e.target.elements[0].value = '';
-		}
+		const error = this.props.addWatch(option);
+		e.target.elements[0].value = '';
+		if (error) {
+			this.setState(() => {
+				console.log(error);
+				return {
+					error: error,
+				};
+			});
+		} else {
+         this.setState(() => {
+            return {
+               error: undefined
+            }
+         });
+      }
 	}
 	render() {
 		return (
@@ -174,7 +194,7 @@ class AddOption extends React.Component {
 						style={{ padding: '7px', outline: '1px solid lightgray' }}
 						type="text"
 						className="addWatch"
-						placeholder={!this.props.watchlistEmpty ? 'enter watch option' : 'nothing more to watch'}
+						placeholder={this.props.watchlistEmpty ? 'enter watch option' : 'nothing more to watch'}
 					/>
 					<button
 						style={{
@@ -190,6 +210,7 @@ class AddOption extends React.Component {
 					>
 						Add WatchNow
 					</button>
+               {this.state.error && <p>{this.state.error}</p>}
 				</form>
 			</div>
 		);

@@ -46,6 +46,11 @@ var IndiRact = function (_React$Component) {
 		value: function addWatch(option) {
 			var _this2 = this;
 
+			if (!option) {
+				return 'enter a valid value: string';
+			} else if (this.state.options.indexOf(option) > -1) {
+				return 'this watchcrime already exists';
+			}
 			this.setState(function (prevState) {
 				return {
 					options: _this2.state.options.concat([option])
@@ -90,10 +95,10 @@ var IndiRact = function (_React$Component) {
 					randomPick: this.state.randomCrimeWatch
 				}),
 				React.createElement(Options, { options: this.state.options, clearWatch: this.clearWatch }),
-				React.createElement(AddOption
-				// watchlistEmpty={(this.state.options.length > 0)}
-				// addWatchNow={this.state.addWatchNow}
-				, { addWatch: this.addWatch
+				React.createElement(AddOption, {
+					watchlistEmpty: this.state.options.length > 0
+					// addWatchNow={this.state.addWatchNow}
+					, addWatch: this.addWatch
 				})
 			);
 		} // render
@@ -273,6 +278,9 @@ var AddOption = function (_React$Component6) {
 
 		var _this8 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
+		_this8.state = {
+			error: undefined
+		};
 		_this8.addWatch = _this8.addWatch.bind(_this8);
 		return _this8;
 	}
@@ -282,9 +290,21 @@ var AddOption = function (_React$Component6) {
 		value: function addWatch(e) {
 			e.preventDefault();
 			var option = e.target.elements[0].value;
-			if (option) {
-				this.props.addWatch(option);
-				e.target.elements[0].value = '';
+			var error = this.props.addWatch(option);
+			e.target.elements[0].value = '';
+			if (error) {
+				this.setState(function () {
+					console.log(error);
+					return {
+						error: error
+					};
+				});
+			} else {
+				this.setState(function () {
+					return {
+						error: undefined
+					};
+				});
 			}
 		}
 	}, {
@@ -300,7 +320,7 @@ var AddOption = function (_React$Component6) {
 						style: { padding: '7px', outline: '1px solid lightgray' },
 						type: 'text',
 						className: 'addWatch',
-						placeholder: !this.props.watchlistEmpty ? 'enter watch option' : 'nothing more to watch'
+						placeholder: this.props.watchlistEmpty ? 'enter watch option' : 'nothing more to watch'
 					}),
 					React.createElement(
 						'button',
@@ -317,6 +337,11 @@ var AddOption = function (_React$Component6) {
 							type: 'submit'
 						},
 						'Add WatchNow'
+					),
+					this.state.error && React.createElement(
+						'p',
+						null,
+						this.state.error
 					)
 				)
 			);
