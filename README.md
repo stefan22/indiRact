@@ -54,7 +54,7 @@
 
 <hr/>
 
-         
+<br/>         
 
 #### VS-Code Annoying typescript highlighting errors 
 
@@ -63,9 +63,10 @@
 Disabling every avail TS setting would not get rid of it.           
 Go to Extension view, search for @builtin javascript, and disable TypeScript Language Features.      
 
-...
-..
+
 <hr/>
+
+<br />
         
 
 
