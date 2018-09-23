@@ -44,13 +44,11 @@ var IndiRact = function (_React$Component) {
 	}, {
 		key: 'addWatch',
 		value: function addWatch(option) {
-			console.log(option);
-			var arr = this.state.options;
-			console.log(arr);
-			arr.push(option);
-			this.setState(function () {
+			var _this2 = this;
+
+			this.setState(function (prevState) {
 				return {
-					options: arr
+					options: _this2.state.options.concat([option])
 				};
 			});
 		} // addWatch
@@ -58,12 +56,12 @@ var IndiRact = function (_React$Component) {
 	}, {
 		key: 'randomReadyCrime',
 		value: function randomReadyCrime() {
-			var _this2 = this;
+			var _this3 = this;
 
 			this.setState(function () {
-				_this2.state.randomWatch = _this2.randomCrimeWatch();
+				_this3.state.randomWatch = _this3.randomCrimeWatch();
 				return {
-					randomCrimeWatch: _this2.state.randomWatch
+					randomCrimeWatch: _this3.state.randomWatch
 				};
 			});
 
@@ -273,10 +271,10 @@ var AddOption = function (_React$Component6) {
 	function AddOption(props) {
 		_classCallCheck(this, AddOption);
 
-		var _this7 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+		var _this8 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
-		_this7.addWatch = _this7.addWatch.bind(_this7);
-		return _this7;
+		_this8.addWatch = _this8.addWatch.bind(_this8);
+		return _this8;
 	}
 
 	_createClass(AddOption, [{

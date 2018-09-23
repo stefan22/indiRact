@@ -25,13 +25,9 @@ class IndiRact extends React.Component {
 	} // clearWatch
 
 	addWatch(option) {
-		console.log(option);
-		let arr = this.state.options;
-		console.log(arr);
-		arr.push(option);
-		this.setState(() => {
+		this.setState(prevState => {
 			return {
-				options: arr,
+				options: this.state.options.concat([option]),
 			};
 		});
 	} // addWatch
