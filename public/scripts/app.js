@@ -89,7 +89,7 @@ var IndiRact = function (_React$Component) {
 				'div',
 				null,
 				React.createElement(Header, { title: this.state.title, subtitle: this.state.subtitle, disclaimer: this.state.disclaimer }),
-				React.createElement(Action, {
+				React.createElement(RandomAction, {
 					watchlistEmpty: this.state.options.length > 0,
 					randomReady: this.randomReadyCrime,
 					randomPick: this.state.randomCrimeWatch
@@ -108,54 +108,38 @@ var IndiRact = function (_React$Component) {
 	return IndiRact;
 }(React.Component); // IndiRact class
 
-var Header = function (_React$Component2) {
-	_inherits(Header, _React$Component2);
+var Header = function Header(props) {
+	return React.createElement(
+		'div',
+		{ style: { textAlign: 'center' } },
+		React.createElement(
+			'h1',
+			null,
+			props.title
+		),
+		React.createElement(
+			'h2',
+			null,
+			props.subtitle
+		),
+		React.createElement(
+			'small',
+			null,
+			props.disclaimer
+		)
+	);
+}; // Header fn
 
-	function Header() {
-		_classCallCheck(this, Header);
+var RandomAction = function (_React$Component2) {
+	_inherits(RandomAction, _React$Component2);
 
-		return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	function RandomAction() {
+		_classCallCheck(this, RandomAction);
+
+		return _possibleConstructorReturn(this, (RandomAction.__proto__ || Object.getPrototypeOf(RandomAction)).apply(this, arguments));
 	}
 
-	_createClass(Header, [{
-		key: 'render',
-		value: function render() {
-			return React.createElement(
-				'div',
-				{ style: { textAlign: 'center' } },
-				React.createElement(
-					'h1',
-					null,
-					this.props.title
-				),
-				React.createElement(
-					'h2',
-					null,
-					this.props.subtitle
-				),
-				React.createElement(
-					'small',
-					null,
-					this.props.disclaimer
-				)
-			);
-		} // render
-
-	}]);
-
-	return Header;
-}(React.Component); // Header class
-
-var Action = function (_React$Component3) {
-	_inherits(Action, _React$Component3);
-
-	function Action() {
-		_classCallCheck(this, Action);
-
-		return _possibleConstructorReturn(this, (Action.__proto__ || Object.getPrototypeOf(Action)).apply(this, arguments));
-	}
-
-	_createClass(Action, [{
+	_createClass(RandomAction, [{
 		key: 'render',
 		value: function render() {
 			return React.createElement(
@@ -188,11 +172,11 @@ var Action = function (_React$Component3) {
 
 	}]);
 
-	return Action;
-}(React.Component); // Action class
+	return RandomAction;
+}(React.Component); // RandomAction class
 
-var Options = function (_React$Component4) {
-	_inherits(Options, _React$Component4);
+var Options = function (_React$Component3) {
+	_inherits(Options, _React$Component3);
 
 	function Options() {
 		_classCallCheck(this, Options);
@@ -240,49 +224,33 @@ var Options = function (_React$Component4) {
 	return Options;
 }(React.Component); // Options class
 
-var SingleOption = function (_React$Component5) {
-	_inherits(SingleOption, _React$Component5);
+var SingleOption = function SingleOption(props) {
+	return React.createElement(
+		'div',
+		{ style: { textAlign: 'center' } },
+		React.createElement(
+			'span',
+			{ className: 'wn' },
+			'Watch Now'
+		),
+		': ',
+		props.singleOption
+	);
+}; // SingleOption fn
 
-	function SingleOption() {
-		_classCallCheck(this, SingleOption);
-
-		return _possibleConstructorReturn(this, (SingleOption.__proto__ || Object.getPrototypeOf(SingleOption)).apply(this, arguments));
-	}
-
-	_createClass(SingleOption, [{
-		key: 'render',
-		value: function render() {
-			return React.createElement(
-				'div',
-				{ style: { textAlign: 'center' } },
-				React.createElement(
-					'span',
-					{ className: 'wn' },
-					'Watch Now'
-				),
-				': ',
-				this.props.singleOption
-			);
-		} //render
-
-	}]);
-
-	return SingleOption;
-}(React.Component); // SingleOption class
-
-var AddOption = function (_React$Component6) {
-	_inherits(AddOption, _React$Component6);
+var AddOption = function (_React$Component4) {
+	_inherits(AddOption, _React$Component4);
 
 	function AddOption(props) {
 		_classCallCheck(this, AddOption);
 
-		var _this8 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+		var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
-		_this8.state = {
+		_this6.state = {
 			error: undefined
 		};
-		_this8.addWatch = _this8.addWatch.bind(_this8);
-		return _this8;
+		_this6.addWatch = _this6.addWatch.bind(_this6);
+		return _this6;
 	}
 
 	_createClass(AddOption, [{
@@ -351,5 +319,6 @@ var AddOption = function (_React$Component6) {
 
 	return AddOption;
 }(React.Component); // AddOption class
+
 
 ReactDOM.render(React.createElement(IndiRact, null), document.getElementById('app'));

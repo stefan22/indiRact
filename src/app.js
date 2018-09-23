@@ -59,7 +59,7 @@ class IndiRact extends React.Component {
 		return (
 			<div>
 				<Header title={this.state.title} subtitle={this.state.subtitle} disclaimer={this.state.disclaimer} />
-				<Action
+				<RandomAction
 					watchlistEmpty={this.state.options.length > 0}
 					randomReady={this.randomReadyCrime}
 					randomPick={this.state.randomCrimeWatch}
@@ -77,19 +77,18 @@ class IndiRact extends React.Component {
 	} // render
 } // IndiRact class
 
-class Header extends React.Component {
-	render() {
-		return (
-			<div style={{ textAlign: 'center' }}>
-				<h1>{this.props.title}</h1>
-				<h2>{this.props.subtitle}</h2>
-				<small>{this.props.disclaimer}</small>
-			</div>
-		);
-	} // render
-} // Header class
+const Header = (props) => {
+   return (
+      <div style={{ textAlign: 'center' }}>
+         <h1>{props.title}</h1>
+         <h2>{props.subtitle}</h2>
+         <small>{props.disclaimer}</small>
+      </div>
+   );
 
-class Action extends React.Component {
+};// Header fn
+
+class RandomAction extends React.Component {
 	render() {
 		return (
 			<div style={{ textAlign: 'center' }}>
@@ -116,7 +115,7 @@ class Action extends React.Component {
 			</div>
 		);
 	} // render
-} // Action class
+} // RandomAction class
 
 class Options extends React.Component {
 	render() {
@@ -148,15 +147,14 @@ class Options extends React.Component {
 	render;
 } // Options class
 
-class SingleOption extends React.Component {
-	render() {
-		return (
-			<div style={{ textAlign: 'center' }}>
-				<span className="wn">Watch Now</span>: {this.props.singleOption}
-			</div>
-		);
-	} //render
-} // SingleOption class
+const SingleOption = (props) => {
+   return (
+      <div style={{ textAlign: 'center' }}>
+         <span className="wn">Watch Now</span>: {props.singleOption}
+      </div>
+	);
+
+}// SingleOption fn
 
 class AddOption extends React.Component {
 	constructor(props) {
@@ -216,5 +214,6 @@ class AddOption extends React.Component {
 		);
 	} //render
 } // AddOption class
+
 
 ReactDOM.render(<IndiRact />, document.getElementById('app'));

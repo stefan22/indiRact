@@ -54,28 +54,28 @@
 
 <hr/>
 
-<br/>         
+<br/>
 
-#### VS-Code Annoying typescript highlighting errors 
+#### VS-Code Annoying typescript highlighting errors
 
 `[ts] , expected`
 
-Disabling every avail TS setting would not get rid of it.           
-Go to Extension view, search for @builtin javascript, and disable TypeScript Language Features.      
+Disabling every avail TS setting would not get rid of it.
+Go to Extension view, search for @builtin javascript, and disable TypeScript Language Features.
 
 
 <hr/>
 
 <br />
-        
+
 
 
 `classes`: super/extends to add up properties from another constructor, re-write methods
-  in parent class, pass events from parent/child classes & viceversa .          
+  in parent class, pass events from parent/child classes & viceversa .
 `jsx` component rendering, and often used patterns like inline rendering using ternary
   operators, and double negatives with booleans- jsx always returns undefined when no value.
 
-<br /> 
+<br />
 
 <kbd>v3</kbd>
 
@@ -85,11 +85,11 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript Lan
 
 
 
-### another todo list 
-.. but this time built off a `component-based` layout structure and jsx for class rendering inner-components:      
-header, list-options, single-option and add-option.            
+### another todo list
+.. but this time built off a `component-based` layout structure and jsx for class rendering inner-components:
+header, list-options, single-option and add-option.
 
-crime documentary watch guide listing some memorable titles available in ID Discovery channel:      
+crime documentary watch guide listing some memorable titles available in ID Discovery channel:
 
  + `murder-instincts`,
  + `murder-comes-to-town`,
@@ -151,9 +151,9 @@ crime documentary watch guide listing some memorable titles available in ID Disc
  + method functions have this clearly defined but
  + if a method is assigned to variable of the same name and later call you would
    get an error because:
- + you can't pass context from the obj to fn  
+ + you can't pass context from the obj to fn
  + this on a function will return undefined
- 
+
 
  ```
       const obj = {
@@ -299,8 +299,31 @@ crime documentary watch guide listing some memorable titles available in ID Disc
 
 ### Reversing data flow, but also passing data upstream
 
-- the same way as with reversing data flow, but this time creating another function within the child       
+- the same way as with reversing data flow, but this time creating another function within the child
   component - do whatever calc are needed - then passing this data to the funcion in the parent component.
-  
- 
 
+
+
+## stateless functional components
+- we cannot use state inside functional components
+- we can use props
+- they are faster than state components
+- so when u can u should use them
+
+
+```
+   ex: class User
+
+      const User = (props) => {
+         return (
+            <div>
+               <p>Name: {props.name}</p>
+               <p>Age: {props.age}</p>
+            </div>
+         );
+
+      };// User class
+
+      ReactDOM.render(<User name='Joe' age={35} />, document.getElementById('app'));
+
+```
