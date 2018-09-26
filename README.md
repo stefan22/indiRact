@@ -1,44 +1,40 @@
 # IndiRact
 
-
 ## Setup workflow
 
 #### Initial folders
 
 ```
-
     > public
       > scripts
         + app.js
 
     > src
       - app.js
-
 ```
 
 > linking to cdn gives u access to globals: React,ReactDOM
 
 #### terminal
 
-- npm init
-- installed live-server (g)
-  + `live-server` to run server
-- installed babel-cli (g)
-- babel-preset-react@6.24.1
-- babel-preset-env@1.5.2
+-   npm init
+-   installed live-server (g)
+    -   `live-server` to run server
+-   installed babel-cli (g)
+-   babel-preset-react@6.24.1
+-   babel-preset-env@1.5.2
 
 > src/app.js --> contains `jsx`
 > public/app.js ----> auto-generated file w/babel transformations
 
 ##### babel In order to compile JSX and ES6 code config
 
-- path to code to compile
-  + `src/app.js`
-- path to output file
-  + `--out-file=public/scripts/app.js`
-- presets
-  + `--presets=env,react --watch`
-
+-   path to code to compile
+    -   `src/app.js`
+-   path to output file
+    -   `--out-file=public/scripts/app.js`
+-   presets
+    -   `--presets=env,react --watch`
 
 <kbd>here:</kbd>
 
@@ -48,9 +44,8 @@
 
 <br/>
 
-- in a separate tab:
-  + `live-server public`
-
+-   in a separate tab:
+    -   `live-server public`
 
 <hr/>
 
@@ -63,17 +58,14 @@
 Disabling every avail TS setting would not get rid of it.
 Go to Extension view, search for @builtin javascript, and disable TypeScript Language Features.
 
-
 <hr/>
 
 <br />
 
-
-
 `classes`: super/extends to add up properties from another constructor, re-write methods
-  in parent class, pass events from parent/child classes & viceversa .
+in parent class, pass events from parent/child classes & viceversa .
 `jsx` component rendering, and often used patterns like inline rendering using ternary
-  operators, and double negatives with booleans- jsx always returns undefined when no value.
+operators, and double negatives with booleans- jsx always returns undefined when no value.
 
 <br />
 
@@ -83,27 +75,24 @@ Go to Extension view, search for @builtin javascript, and disable TypeScript Lan
 
 <br />
 
-
-
 ### another todo list
+
 .. but this time built off a `component-based` layout structure and jsx for class rendering inner-components:
 header, list-options, single-option and add-option.
 
 crime documentary watch guide listing some memorable titles available in ID Discovery channel:
 
- + `murder-instincts`,
- + `murder-comes-to-town`,
- + `murder-in-paradise`,
- + `kosher-killer -e`,
- + `killer-in-law -e`,
- + `last-dance -e`, and
- + `no-happy-ending -e`)
-
-
-
+-   `murder-instincts`,
+-   `murder-comes-to-town`,
+-   `murder-in-paradise`,
+-   `kosher-killer -e`,
+-   `killer-in-law -e`,
+-   `last-dance -e`, and
+-   `no-happy-ending -e`)
 
 ### components props
-- allow components to comunicate with one another
+
+-   allow components to comunicate with one another
 
 ```
    ex:
@@ -142,66 +131,60 @@ crime documentary watch guide listing some memorable titles available in ID Disc
       //this.props in console gives you
 
       {title: "Tivo Prime}
-
-
 ```
 
 #### why adding bind(this) to methods
 
- + method functions have this clearly defined but
- + if a method is assigned to variable of the same name and later call you would
-   get an error because:
- + you can't pass context from the obj to fn
- + this on a function will return undefined
+-   method functions have this clearly defined but
+-   if a method is assigned to variable of the same name and later call you would
+    get an error because:
+-   you can't pass context from the obj to fn
+-   this on a function will return undefined
 
+```
+     const obj = {
+        name: 'joe',
+        getName() {
+           return this.name
+        }
+     }
+     //here it's easy to see that this refers to the obj
+     // but if you do
+     const getName = obj.getName;
 
- ```
-      const obj = {
-         name: 'joe',
-         getName() {
-            return this.name
-         }
-      }
-      //here it's easy to see that this refers to the obj
-      // but if you do
-      const getName = obj.getName;
+     //and then call the fn
+     console.log(getName());   // that's where u encounter the error
 
-      //and then call the fn
-      console.log(getName());   // that's where u encounter the error
+     // u can bind directly to the event
+        this.getName.bind(this)  //and it will bind to the class render method
+     // or specify an obj anything
 
-      // u can bind directly to the event
-         this.getName.bind(this)  //and it will bind to the class render method
-      // or specify an obj anything
+     //gen purpose ex:
 
-      //gen purpose ex:
+     const getName = () => console.log(this);    //returns undefined
 
-      const getName = () => console.log(this);    //returns undefined
-
-      //generally in react binding is done in constructor.
-
- ```
+     //generally in react binding is done in constructor.
+```
 
 #### component state
 
-- essential for component interactivity
-- it allows components to manage some data
-- when data changes automatically re-renders to reflect those changes
-
+-   essential for component interactivity
+-   it allows components to manage some data
+-   when data changes automatically re-renders to reflect those changes
 
 ##### state steps:
 
-- [01] when setting up state you need to come up with a default set of values
-   + counter 0 (default state value)
-   + array [] empty array ( default state value)
+-   [01] when setting up state you need to come up with a default set of values
 
-- [02] Component rendered with default state values
+    -   counter 0 (default state value)
+    -   array [] empty array ( default state value)
 
-- [03] State changes based off of some event/user interaction like a button
+-   [02] Component rendered with default state values
 
-- [04] The application re-renders itself. It brings the UI up-to-date with a
-       component state.
+-   [03] State changes based off of some event/user interaction like a button
 
-
+-   [04] The application re-renders itself. It brings the UI up-to-date with a
+    component state.
 
 ```
    //without component state, you would need to manually call render method like this:
@@ -210,14 +193,13 @@ crime documentary watch guide listing some memorable titles available in ID Disc
       some.options = [];
       render();
    }
-
 ```
 
 ### setState method call in component instances
 
-- call like this:
-- it gets call with a single argument that is going to be a function.
-- and return an object
+-   call like this:
+-   it gets call with a single argument that is going to be a function.
+-   and return an object
 
 ```
       this.setState(() => {
@@ -247,14 +229,13 @@ crime documentary watch guide listing some memorable titles available in ID Disc
             count: name
          };
       });
-
 ```
 
 ### recommended method for updating state
 
-- `recommended` - to use `this.setState` with `function`.
-- it doesnt suffer from the same problems cause we never access this.state.
-- Instead react passes `prevState`
+-   `recommended` - to use `this.setState` with `function`.
+-   it doesnt suffer from the same problems cause we never access this.state.
+-   Instead react passes `prevState`
 
 > technique ? ::=>.. is to get the old value first and use that.
 > for ex: in a count set to zero, to increment the value you would get first
@@ -272,44 +253,41 @@ crime documentary watch guide listing some memorable titles available in ID Disc
          };
 
       });
-
 ```
 
 ### data upstream
 
-- when u have children components that need to manipulate the state up
-  in the parent.
-- for ex: add option needs to be able to get that data text from the user to the
-  parent component, just as the state (in parent) in order to add to array
-  options needs to be able to remove an individual watch crime
+-   when u have children components that need to manipulate the state up
+    in the parent.
+-   for ex: add option needs to be able to get that data text from the user to the
+    parent component, just as the state (in parent) in order to add to array
+    options needs to be able to remove an individual watch crime
 
-- so the idea is to run some code at parent level based on events that are going
-  to happen at their children components level.
+-   so the idea is to run some code at parent level based on events that are going
+    to happen at their children components level.
 
-- `props` are just a one-way street, they dont do upstream
+-   `props` are just a one-way street, they dont do upstream
 
-- To pass data `upstream`, we have to `pass` `functions` in as `props`
-
+-   To pass data `upstream`, we have to `pass` `functions` in as `props`
 
 ### Reverses Data Flow (child-parent)
-   + by first passing down functions to the children
-   + children can then call the functions which are defined at parent level
-   + as a result, you now can react to events in child components and while at the
-     same time use functions at parent component
+
+-   by first passing down functions to the children
+-   children can then call the functions which are defined at parent level
+-   as a result, you now can react to events in child components and while at the
+    same time use functions at parent component
 
 ### Reversing data flow, but also passing data upstream
 
-- the same way as with reversing data flow, but this time creating another function within the child
-  component - do whatever calc are needed - then passing this data to the funcion in the parent component.
-
-
+-   the same way as with reversing data flow, but this time creating another function within the child
+    component - do whatever calc are needed - then passing this data to the funcion in the parent component.
 
 ## stateless functional components
-- we cannot use state inside functional components
-- we can use props
-- they are faster than state components
-- so when u can u should use them
 
+-   we cannot use state inside functional components
+-   we can use props
+-   they are faster than state components
+-   so when u can u should use them
 
 ```
    ex: class User
@@ -325,5 +303,20 @@ crime documentary watch guide listing some memorable titles available in ID Disc
       };// User class
 
       ReactDOM.render(<User name='Joe' age={35} />, document.getElementById('app'));
+```
 
+#### default prop values
+
+-   we can set default values once a component has been defined
+-   for classes and functions
+-   below if i dont provide a value for title, then a default will be used
+-   if you have the values set on the parent component you can setup a default
+    value on the component itself or override if you want to by removing it from
+    the parent and leaving it on the actual component only
+
+```
+   Header.defaultProps = {
+      title: 'some default'
+
+   }
 ```
